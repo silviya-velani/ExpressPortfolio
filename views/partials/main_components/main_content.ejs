@@ -1,21 +1,24 @@
 <!-- Main Content -->
 
-<main class="container-fluid">
-    <div class="jumbotron">
+<main>
         <% if (title == "Home") { %>
-            <div>
+        <main>
+            <div class="black">
                 <%- include ../pages/home_page.ejs %>
             </div>
-        <% } else if (title == "About Me") { %>
-            <div>
+        </main>
+        <% } else { %>
+        <main class="container-fluid">
+            <% if (title == "About Me") { %>
+            <div class="jumbotron">
                 <%- include ../pages/about_page.ejs %>
             </div>
         <%  } else if (title == "Products") {  %>
-            <div>
+            <div class="jumbotron">
                 <%- include ../pages/product_page.ejs %>
             </div>
         <%  } else if (title == "Services") {  %>
-            <div>
+            <div class="jumbotron">
                 <%- include ../pages/service_page.ejs %>
             </div>
         <%  } else {  %>
@@ -23,5 +26,6 @@
                 <%- include ../pages/contact_page.ejs %>
             </div>
         <% } %>
-    </div>
+        </main>
+        <% } %>
 </main>

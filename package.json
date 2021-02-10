@@ -1,9 +1,13 @@
 {
   "name": "expressportfolio",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "node ./server.js"
+  },
+  "engines": {
+    "node": "^14.0.0",
+    "npm": "^6.0.0np"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.2",

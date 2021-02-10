@@ -1,0 +1,27 @@
+<!-- Main Content -->
+
+<main class="container-fluid">
+    <div class="jumbotron">
+        <% if (title == "Home") { %>
+            <div>
+                <%- include ../pages/home_page.ejs %>
+            </div>
+        <% } else if (title == "About Me") { %>
+            <div>
+                <%- include ../pages/about_page.ejs %>
+            </div>
+        <%  } else if (title == "Products") {  %>
+            <div>
+                <%- include ../pages/product_page.ejs %>
+            </div>
+        <%  } else if (title == "Services") {  %>
+            <div>
+                <%- include ../pages/service_page.ejs %>
+            </div>
+        <%  } else {  %>
+            <div>
+                <%- include ../pages/contact_page.ejs %>
+            </div>
+        <% } %>
+    </div>
+</main>

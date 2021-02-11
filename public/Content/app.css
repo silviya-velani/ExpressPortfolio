@@ -53,8 +53,8 @@ img-block {
 .animated {
   background-repeat: no-repeat;
   background-position: left top;
-  padding-top:95px;
-  margin-bottom:60px;
+  padding-top:35px;
+  margin-bottom:70px;
   -webkit-animation-duration: 5s;
   animation-duration: 5s;
   -webkit-animation-fill-mode: both;
@@ -106,7 +106,7 @@ input[type=submit]:hover {
 .container-white {
   border-radius: 5px;
   background-color: #f2f2f2;
-  padding: 10px;
+  padding: 20px;
 }
 
 /* Create two columns that float next to eachother */
@@ -120,7 +120,7 @@ input[type=submit]:hover {
 .column-66 {
   float: left;
   width: 66.66666%;
-  padding: 20px;
+  padding: 30px;
 }
 
 .column-33 {

@@ -4,26 +4,26 @@
         <% if (title == "Home") { %>
         <main>
             <div class="black">
-                <%- include ../pages/home_page.ejs %>
+                <%- include ../content_pages/home_page.ejs %>
             </div>
         </main>
         <% } else { %>
         <main class="container-fluid">
             <% if (title == "About Me") { %>
             <div class="jumbotron">
-                <%- include ../pages/about_page.ejs %>
+                <%- include ../content_pages/about_page.ejs %>
             </div>
-        <%  } else if (title == "Products") {  %>
-            <div class="jumbotron">
-                <%- include ../pages/product_page.ejs %>
+        <%  } else if (title == "Projects") {  %>
+            <div>
+                <%- include ../content_pages/project_page.ejs %>
             </div>
         <%  } else if (title == "Services") {  %>
             <div class="jumbotron">
-                <%- include ../pages/service_page.ejs %>
+                <%- include ../content_pages/service_page.ejs %>
             </div>
         <%  } else {  %>
             <div>
-                <%- include ../pages/contact_page.ejs %>
+                <%- include ../content_pages/contact_page.ejs %>
             </div>
         <% } %>
         </main>

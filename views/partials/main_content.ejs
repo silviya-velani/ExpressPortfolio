@@ -1,31 +1,39 @@
-<!-- Main Content -->
+<!-- 
+main_content.ejs
+ExpressPortfolio
 
+Created by Silviya Velani on 01/06/21.
+Student Id: 301167163
+Copyright © 2021 Centennial College. All rights reserved. -->
+
+
+<!-- Main Content -->
 <main>
-        <% if (title == "Home") { %>
-        <main>
-            <div class="black">
-                <%- include ../content_pages/home_page.ejs %>
-            </div>
-        </main>
-        <% } else { %>
-        <main class="container-fluid">
-            <% if (title == "About Me") { %>
-            <div class="jumbotron">
-                <%- include ../content_pages/about_page.ejs %>
-            </div>
+    <% if (title == "Home") { %>
+    <main>
+        <div class="black">
+            <%- include ../content_pages/home_page.ejs %>
+        </div>
+    </main>
+    <% } else { %>
+    <main class="container-fluid">
+        <% if (title == "About Me") { %>
+        <div class="jumbotron">
+            <%- include ../content_pages/about_page.ejs %>
+        </div>
         <%  } else if (title == "Projects") {  %>
-            <div>
-                <%- include ../content_pages/project_page.ejs %>
-            </div>
+        <div>
+            <%- include ../content_pages/project_page.ejs %>
+        </div>
         <%  } else if (title == "Services") {  %>
-            <div class="jumbotron">
-                <%- include ../content_pages/service_page.ejs %>
-            </div>
+        <div class="jumbotron">
+            <%- include ../content_pages/service_page.ejs %>
+        </div>
         <%  } else {  %>
-            <div>
-                <%- include ../content_pages/contact_page.ejs %>
-            </div>
-        <% } %>
-        </main>
-        <% } %>
+        <div>
+            <%- include ../content_pages/contact_page.ejs %>
+        </div>
+    <% } %>
+    </main>
+    <% } %>
 </main>

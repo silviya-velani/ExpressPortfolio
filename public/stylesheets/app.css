@@ -1,3 +1,12 @@
+/* 
+app.css
+ExpressPortfolio
+
+Created by Silviya Velani on 01/06/21.
+Student Id: 301167163
+Copyright © 2021 Centennial College. All rights reserved. */
+
+
 /* CSS for components */
 
 body {
@@ -49,7 +58,7 @@ img-block {
   max-width: 100%;
 }
 
-/* Animation CSS */
+/* Animation And FadeIn CSS */
 .animated {
   background-repeat: no-repeat;
   background-position: left top;

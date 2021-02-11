@@ -27,6 +27,11 @@ p {
   line-height: 130%;
 }
 
+.navbar-nav > li{
+  margin-left:4px;
+  margin-right:4px;
+}
+
 /* Custom class CSS */
 .black {
   background: #191919;

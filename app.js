@@ -17,7 +17,6 @@ let logger = require('morgan');
 let favicon = require('serve-favicon')
 
 let indexRouter = require('./routes/index');
-// let usersRouter = require('./routes/users');
 
 let app = express();
 
@@ -34,7 +33,6 @@ app.use(express.static(path.join(__dirname, 'node_modules')));
 app.use(favicon(__dirname + '/public/Assets/images/logo.png'));
 
 app.use('/', indexRouter);
-// app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

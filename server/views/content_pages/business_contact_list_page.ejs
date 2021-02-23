@@ -1,0 +1,36 @@
+<!-- 
+business_contact_list_page.ejs
+ExpressPortfolio
+
+Created by Silviya Velani on 02/23/21.
+Student Id: 301167163
+Copyright © 2021 Centennial College. All rights reserved. -->
+
+
+<!-- Page Header & Content -->
+<div style="text-align: center;padding-top: 70px;">
+    <h1 class="xlarge-font"><b>Business <span style="color:MediumSeaGreen;">Contact List</span></b></h1>
+    <hr class="my-3"><br>
+
+    <table class="table table-striped table-bordered table-hover animated fadeIn">
+        <!-- Header row -->
+        <tr>
+            <th class="text-center" scope="col">#</th>
+            <th class="text-center" scope="col">Contact Name</th>
+            <th class="text-center" scope="col">Contact Number</th>
+            <th class="text-center" scope="col">Email Address</th>
+        </tr>
+
+        <!-- Repeatable template -->
+        <% for(let count = 0; count < BusinessList.length; count++) { %>
+            <tr>
+                <th class="text-center" scope="row"><%= count + 1 %></th>
+                <td class="text-center"><%= BusinessList[count].name %></td>
+                <td class="text-center"><%= BusinessList[count].contact_no %></td>
+                <td class="text-center"><%= BusinessList[count].email %></td>
+            </tr>
+
+        <% } %>
+    </table><br><br>
+    
+</div>

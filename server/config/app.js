@@ -30,7 +30,7 @@ mongodb.once('open', ()=>{
 });
 
 let indexRouter = require('../routes/index');
-let bookRouter = require('../routes/book');
+let businessRouter = require('../routes/business');
 
 let app = express();
 
@@ -42,12 +42,12 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, '../public')));
-app.use(express.static(path.join(__dirname, '../node_modules')));
+app.use(express.static(path.join(__dirname, '../../public')));
+app.use(express.static(path.join(__dirname, '../../node_modules')));
 //app.use(favicon(__dirname + './public/Assets/images/logo.png'));
 
 app.use('/', indexRouter);
-app.use('/book-list', bookRouter);
+app.use('/contact-list', businessRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

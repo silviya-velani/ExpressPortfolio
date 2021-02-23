@@ -16,23 +16,38 @@ let cookieParser = require('cookie-parser');
 let logger = require('morgan');
 let favicon = require('serve-favicon')
 
-let indexRouter = require('./routes/index');
+// database setup
+let mongoose = require('mongoose');
+let db = require('./db');
+
+//point mongoose to db URI
+mongoose.connect(db.URI, {useNewUrlParser: true, useUnifiedTopology: true});
+
+let mongodb = mongoose.connection;
+mongodb.on('error', console.error.bind(console, 'Connection Error: '));
+mongodb.once('open', ()=>{
+  console.log('Connected to mongoDB...');
+});
+
+let indexRouter = require('../routes/index');
+let bookRouter = require('../routes/book');
 
 let app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, '../views'));
 app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'node_modules')));
-app.use(favicon(__dirname + '/public/Assets/images/logo.png'));
+app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.static(path.join(__dirname, '../node_modules')));
+//app.use(favicon(__dirname + './public/Assets/images/logo.png'));
 
 app.use('/', indexRouter);
+app.use('/book-list', bookRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

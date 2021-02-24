@@ -27,6 +27,14 @@ p {
   line-height: 130%;
 }
 
+.table-hover thead tr:hover th, .table-hover tbody tr:hover td {
+  background-color: #D1FDDA;
+}
+
+table:hover {
+  opacity: 0.5;
+}
+
 /* Custom class CSS */
 .black {
   background: #191919;

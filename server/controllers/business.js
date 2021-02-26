@@ -2,6 +2,8 @@ let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');
 
+let jwt = require('jsonwebtoken');
+
 // create a reference to the model
 let Business = require('../models/business');
 
@@ -15,13 +17,17 @@ module.exports.displayBusinessList = (req, res, next) => {
         {
             //console.log(BusinessList);
 
-            res.render('business/list', {title: 'Business Contact List', BusinessList: businessList});      
+            res.render('business/list', 
+            {title: 'Business Contact List', 
+            BusinessList: businessList, 
+            displayName: req.user ? req.user.displayName : ''});      
         }
     });
 }
 
 module.exports.displayAddPage = (req, res, next) => {
-    res.render('business/add', {title: 'Add Business Contact List'})          
+    res.render('business/add', {title: 'Add Business Contact List',
+    displayName: req.user ? req.user.displayName : ''})          
 }
 
 module.exports.processAddPage = (req, res, next) => {
@@ -58,7 +64,9 @@ module.exports.displayEditPage = (req, res, next) => {
         else
         {
             //show the edit view
-            res.render('business/edit', {title: 'Edit Business Contact List', business: businessToEdit})
+            res.render('business/edit', {title: 'Edit Business Contact List', 
+            business: businessToEdit,
+            displayName: req.user ? req.user.displayName : ''})
         }
     });
 }

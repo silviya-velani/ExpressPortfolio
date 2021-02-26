@@ -1,4 +1,6 @@
 module.exports = {
+    "URI" : "mongodb+srv://silviya:UFkEmbcgy8Nj28C6@mongodbserver.g90sg.mongodb.net/business_store?retryWrites=true&w=majority",
     // "URI" : "mongodb://localhost/business_store"
-    "URI" : "mongodb://127.0.0.1:27800/business_store"
+    //"URI" : "mongodb://127.0.0.1:27800/business_store",
+    "Secret": 'SilviyaPortfolioSecretKey'
 }

@@ -2,96 +2,27 @@ let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');
 
-// connect to your Business model
+// connect to our Business Model
 let Business = require('../models/business');
 
-/* GET ROUTE FOR BUSINESS LIST PAGE - READ OPERATION */
-router.get('/', (req, res, next) => {
-    Business.find((err, businessList) => {
-        if(err) {
-            return console.error(err);
-        } else {
-            res.render('business/contact_list', { title: 'Business Contact List', BusinessList: businessList});
-        }
-    }).sort({"name":1})
-});
+let businessController = require('../controllers/business');
 
-/* GET ROUTE FOR DISPLAYING BUSINESS CONTACT ADD PAGE - CREATE OPERATION */
-router.get('/add', (req, res, next) => {
-    res.render('business/contact_add', { title: 'Add Business Contact'});
-});
+/* GET Route for the Business List page - READ Operation */
+router.get('/', businessController.displayBusinessList);
 
-/* POST ROUTE FOR PROCESSING BUSINESS CONTACT ADD PAGE - CREATE OPERATION */
-router.post('/add', (req, res, next) => {
-    let newContact = Business({
-        "name" : req.body.name,
-	    "contact_no" : req.body.contact_no,
-	    "email" : req.body.email
-    });
+/* GET Route for displaying the Add page - CREATE Operation */
+router.get('/add', businessController.displayAddPage);
 
-    Business.create(newContact, (err, Book) => {
-        if(err){
-            console.log(err);
-            res.end(err);
-        } else{
-            //refresh the business list
-            res.redirect('/contact-list');
-        }
-    });
-});
+/* POST Route for processing the Add page - CREATE Operation */
+router.post('/add', businessController.processAddPage);
 
-/* GET ROUTE FOR DISPLAYING BUSINESS CONTACT EDIT PAGE - UPDATE OPERATION */
-router.get('/edit/:id', (req, res, next) => {
-    let id = req.params.id;
+/* GET Route for displaying the Edit page - UPDATE Operation */
+router.get('/edit/:id', businessController.displayEditPage);
 
-    Business.findById(id, (err, currentContact) => {
-        if(err) {
-            //show the error view
-            console.log(err);
-            res.end(err);
-        } else {
-            res.render('business/contact_edit', { title: 'Edit Business Contact' , contact: currentContact});
-        }
-    });
-});
+/* POST Route for processing the Edit page - UPDATE Operation */
+router.post('/edit/:id', businessController.processEditPage);
 
-/* POST ROUTE FOR PROCESSING BUSINESS CONTACT EDIT PAGE - UPDATE OPERATION */
-router.post('/edit/:id', (req, res, next) => {
-    let id = req.params.id;
-
-    let updatedContact = Business({
-        "_id" : id,
-        "name" : req.body.name,
-	    "contact_no" : req.body.contact_no,
-	    "email" : req.body.email
-    });
-
-    Business.updateOne({_id: id}, updatedContact, (err) => {
-        if(err) {
-            console.log(err);
-            res.end(err);
-        } else {
-            //refresh the business list
-            res.redirect('/contact-list');
-        }
-    });
-});
-
-
-/* GET METHOD TO PERFORM DELETION - DELETE OPERATION */
-router.get('/delete/:id', (req, res, next) => {
-    let id = req.params.id;
-
-    Business.remove({_id: id}, (err) => {
-        if(err) {
-            console.log(err);
-            res.end(err);
-        } else {
-            //refresh the business list
-            res.redirect('/contact-list');
-        }
-    });
-});
-
+/* GET to perform  Deletion - DELETE Operation */
+router.get('/delete/:id', businessController.performDelete);
 
 module.exports = router;

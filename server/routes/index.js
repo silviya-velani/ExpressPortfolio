@@ -1,42 +1,24 @@
-/* 
-index.js
-ExpressPortfolio
+let express = require('express');
+let router = express.Router();
 
-Created by Silviya Velani on 01/05/21.
-Student Id: 301167163
-Copyright © 2021 Centennial College. All rights reserved. */
-
-
-var express = require('express');
-var router = express.Router();
+let indexController = require('../controllers/index');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Home'});
-});
+router.get('/', indexController.displayHomePage);
 
-router.get('/home', function(req, res, next) {
-  res.render('index', { title: 'Home'});
-});
+/* GET home page. */
+router.get('/home', indexController.displayHomePage);
 
-/* GET about page. */
-router.get('/about', function(req, res, next) {
-  res.render('index', { title: 'About Me'});
-});
+/* GET About Us page. */
+router.get('/about', indexController.displayAboutPage);
 
-/* GET project page. */
-router.get('/project', function(req, res, next) {
-  res.render('index', { title: 'Projects'});
-});
+/* GET Products page. */
+router.get('/products', indexController.displayProductsPage);
 
-/* GET services page. */
-router.get('/services', function(req, res, next) {
-  res.render('index', { title: 'Services'});
-});
+/* GET Services page. */
+router.get('/services', indexController.displayServicesPage);
 
-/* GET contact page. */
-router.get('/contact', function(req, res, next) {
-  res.render('index', { title: 'Contact Me'});
-});
+/* GET Contact Us page. */
+router.get('/contact', indexController.displayContactPage);
 
 module.exports = router;

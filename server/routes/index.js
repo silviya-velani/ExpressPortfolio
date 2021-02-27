@@ -1,3 +1,13 @@
+/* 
+index.js
+ExpressPortfolio
+
+Created by Silviya Velani on 02/26/21.
+Student Id: 301167163
+Copyright © 2021 Centennial College. All rights reserved. */
+
+
+
 let express = require('express');
 let router = express.Router();
 
@@ -13,7 +23,7 @@ router.get('/home', indexController.displayHomePage);
 router.get('/about', indexController.displayAboutPage);
 
 /* GET Products page. */
-router.get('/products', indexController.displayProductsPage);
+router.get('/project', indexController.displayProjectsPage);
 
 /* GET Services page. */
 router.get('/services', indexController.displayServicesPage);

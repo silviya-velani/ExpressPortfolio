@@ -1,3 +1,12 @@
+/* 
+user.js
+ExpressPortfolio
+
+Created by Silviya Velani on 02/25/21.
+Student Id: 301167163
+Copyright © 2021 Centennial College. All rights reserved. */
+
+
 // require modules for the User Model
 let mongoose = require('mongoose');
 let passportLocalMongoose = require('passport-local-mongoose');

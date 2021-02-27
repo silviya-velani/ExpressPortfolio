@@ -1,3 +1,12 @@
+/* 
+index.js
+ExpressPortfolio
+
+Created by Silviya Velani on 02/24/21.
+Student Id: 301167163
+Copyright © 2021 Centennial College. All rights reserved. */
+
+
 let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');
@@ -12,25 +21,24 @@ let userModel = require('../models/user');
 let User = userModel.User; // alias
 
 module.exports.displayHomePage = (req, res, next) => {
-    res.render('index', {title: 'Home'});
+    res.render('index', {title: 'Home', displayName: req.user ? req.user.displayName : ''});
 }
 
 module.exports.displayAboutPage = (req, res, next) => {
-    res.render('index', { title: 'About'});
+    res.render('index', { title: 'About Me', displayName: req.user ? req.user.displayName : ''});
 }
 
-module.exports.displayProductsPage = (req, res, next) => {
-    res.render('index', { title: 'Products'});
+module.exports.displayProjectsPage = (req, res, next) => {
+    res.render('index', { title: 'Projects', displayName: req.user ? req.user.displayName : ''});
 }
 
 module.exports.displayServicesPage = (req, res, next) => {
-    res.render('index', { title: 'Services'});
+    res.render('index', { title: 'Services', displayName: req.user ? req.user.displayName : ''});
 }
 
 module.exports.displayContactPage = (req, res, next) => {
-    res.render('index', { title: 'Contact'});
+    res.render('index', { title: 'Contact Me', displayName: req.user ? req.user.displayName : ''});
 }
-
 
 module.exports.displayLoginPage = (req, res, next) => {
     // check if the user is already logged in

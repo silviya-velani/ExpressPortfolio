@@ -60,7 +60,7 @@ app.use(favicon(__dirname + '../../../public/Assets/images/logo.png'));
 
 //setup express session
 app.use(session({
-  secret: "SomeSecret",
+  secret: "SilviyaPortfolioSecretKey",
   saveUninitialized: false,
   resave: false
 }));

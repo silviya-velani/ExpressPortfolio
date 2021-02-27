@@ -58,8 +58,13 @@ Copyright © 2021 Centennial College. All rights reserved. -->
                 <button class="btn btn-success" type="submit" style="margin-right: 10px;">
                     <i class="fas fa-edit"></i> Update</button>
                 
-                    <a href="/business-list" class="btn btn-danger" style="margin-right: 10px;">
+                    <a href="/business-list" class="btn btn-warning" style="margin-right: 10px;">
                         <i class="fas fa-undo"></i> Cancel</a>
+
+
+                        <a href="/business-list/delete/<%= business.id %>" class="btn btn-danger">
+                                <i class="fas fa-trash alt"> Delete</i>
+                            </a>
 
             </form>
         </div>
